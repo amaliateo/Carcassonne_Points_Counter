@@ -34,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         totalRed = savedInstanceState.getInt(STATE_TOTALRED);
         totalYellow = savedInstanceState.getInt(STATE_TOTALYELLOW);
-        displayTotalPlayerOne("Total Red Player: " +totalRed + " points");
+        displayTotalPlayerOne("Total Red Player: " + totalRed + " points");
         displayTotalPlayerTwo("Total Yellow Player: " + totalYellow + " points");
     }
+
     public void twoPointsCity(View v) {
 
         tile1 = tile1 + 1;

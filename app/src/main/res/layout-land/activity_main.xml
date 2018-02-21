@@ -1,359 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:configChanges="orientation|keyboardHidden|screenSize"
     tools:context="com.example.android.carcassonne.MainActivity">
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/castleedit_one" />
 
-        <ImageView
+    <ScrollView
+        android:id="@+id/lanscapeScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/medium">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/castleedit_one" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_weight="0"
-                    android:fontFamily="serif"
-                    android:text="@string/new_game_button"
-                    android:textAllCaps="false"
-                    android:onClick="NewGame"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_weight="2"
-                    android:text="@string/red_player"
-                    android:textAppearance="@style/redplayer"
-                    android:gravity="center"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="@string/yellow_player"
-                    android:textAppearance="@style/yellowplayer" />
-            </LinearLayout>
-
-            <TextView
+            <Button
+                android:id="@+id/newgameButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/cityunu"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/small"
+                android:layout_marginTop="@dimen/small"
+                android:background="#8BC34A"
+                android:onClick="NewGame"
+                android:text="@string/new_game_button"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
+
+            <TextView
+                android:id="@+id/redplayerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/medium"
+                android:layout_marginStart="@dimen/medium"
+                android:layout_marginTop="@dimen/medium"
+                android:layout_toEndOf="@id/resetButtonCity"
+                android:layout_toRightOf="@id/resetButtonCity"
+                android:background="#F44336"
+                android:padding="4dp"
+                android:text="@string/red_player"
+                android:textAppearance="@style/yellowplayer" />
+
+            <TextView
+                android:id="@+id/yellowplayerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium"
+                android:layout_marginStart="@dimen/small"
+                android:layout_marginTop="@dimen/medium"
+                android:layout_toEndOf="@id/redbutton"
+                android:layout_toRightOf="@id/redbutton"
+                android:background="#FFEB3B"
+                android:padding="4dp"
+                android:text="@string/yellow_player"
+                android:textAppearance="@style/yellowplayer" />
+
+            <TextView
+                android:id="@+id/cityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newgameButton"
+                android:layout_margin="@dimen/small"
                 android:text="@string/city"
                 android:textAppearance="@style/textStyle" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0">
-
-                    <ImageButton
-                        android:id="@+id/cityunu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/transparent"
-                        android:onClick="twoPointsCity"
-                        android:src="@drawable/cityunu"
-                        />
-
-                    <TextView
-                        android:id="@+id/twopointstiles"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="16dp"
-                        android:layout_toRightOf="@id/cityunu"
-                        android:fontFamily="serif"
-                        android:text="@string/_0_tiles"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <ImageButton
-                        android:id="@+id/cityplus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/cityunu"
-                        android:layout_margin="8dp"
-                        android:background="@android:color/transparent"
-                        android:onClick="fourPointsCity"
-                        android:src="@drawable/cityplus" />
-
-                    <TextView
-                        android:id="@+id/fourpointstiles"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/cityplus"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@+id/cityplus"
-                        android:layout_toRightOf="@+id/cityplus"
-                        android:fontFamily="serif"
-                        android:text="@string/_city"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:fontFamily="serif"
-                    android:onClick="resetButton1"
-                    android:text="@string/reset_button_city"
-                    android:textAllCaps="false"
-                    android:textSize="9sp" />
-
-                <Button
-                    android:id="@+id/redbutton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="2"
-                    android:background="#F44336"
-                    android:fontFamily="serif"
-                    android:onClick="redCity"
-                    android:text="@string/get_points_red_city"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/yellowbutton1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="2"
-                    android:background="#FFEB3B"
-                    android:fontFamily="serif"
-                    android:onClick="yellowCity"
-                    android:text="Get Points"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
+            <ImageButton
+                android:id="@+id/cityunu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Cloister"
-                android:textAppearance="@style/textStyle" />
+                android:layout_below="@id/cityTextView"
+                android:layout_margin="@dimen/small"
+                android:background="@android:color/transparent"
+                android:onClick="twoPointsCity"
+                android:src="@drawable/cityunu" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_weight="0"
-                    android:background="@android:color/transparent"
-                    android:onClick="cloisterTiles"
-                    android:src="@drawable/cloisterunu" />
-
-                <TextView
-                    android:id="@+id/cloister1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="0"
-                    android:fontFamily="serif"
-                    android:text="0 tiles"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:fontFamily="serif"
-                    android:onClick="resetButton2"
-                    android:text="reset"
-                    android:textAllCaps="false"
-                    android:textSize="9sp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="2"
-                    android:background="#F44336"
-                    android:fontFamily="serif"
-                    android:onClick="redCloister"
-                    android:text="Get Points"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="2"
-                    android:background="#FFEB3B"
-                    android:fontFamily="serif"
-                    android:onClick="yellowCloister"
-                    android:text="Get Points"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
+            <ImageButton
+                android:id="@+id/cityplus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Road"
+                android:layout_below="@id/cityunu"
+                android:layout_margin="@dimen/small"
+                android:background="@android:color/transparent"
+                android:onClick="fourPointsCity"
+                android:src="@drawable/cityplus" />
+
+            <TextView
+                android:id="@+id/cloisterTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cityplus"
+                android:layout_margin="@dimen/small"
+                android:text="@string/cloister"
                 android:textAppearance="@style/textStyle" />
 
-            <LinearLayout
-                android:id="@+id/longroad"
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/cloisterImageButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_below="@id/cloisterTextView"
+                android:layout_margin="@dimen/small"
+                android:background="@android:color/transparent"
+                android:onClick="cloisterTiles"
+                android:src="@drawable/cloisterunu" />
 
-                <ImageButton
-                    android:id="@+id/road"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_weight="0"
-                    android:background="@android:color/transparent"
-                    android:onClick="roadTiles"
-                    android:src="@drawable/road" />
+            <TextView
+                android:id="@+id/roadTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cloisterImageButton"
+                android:layout_margin="@dimen/small"
+                android:text="@string/road"
+                android:textAppearance="@style/textStyle" />
 
-                <TextView
-                    android:id="@+id/road1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="0"
-                    android:fontFamily="serif"
-                    android:text="0 tiles"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+            <ImageButton
+                android:id="@+id/roadImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/roadTextView"
+                android:layout_margin="@dimen/small"
+                android:background="@android:color/transparent"
+                android:onClick="roadTiles"
+                android:src="@drawable/road" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:fontFamily="serif"
-                    android:onClick="resetButton3"
-                    android:text="reset"
-                    android:textAllCaps="false"
-                    android:textSize="9sp" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="2"
-                    android:background="#F44336"
-                    android:fontFamily="serif"
-                    android:onClick="redRoad"
-                    android:text="Get Points"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
+            <Button
+                android:id="@+id/redbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/resetButtonCity"
+                android:layout_alignBottom="@+id/resetButtonCity"
+                android:layout_alignLeft="@+id/redplayerTextView"
+                android:layout_alignStart="@+id/redplayerTextView"
+                android:background="#F44336"
+                android:onClick="redCity"
+                android:text="@string/get_points_red_city"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="2"
-                    android:background="#FFEB3B"
-                    android:fontFamily="serif"
-                    android:onClick="yellowRoad"
-                    android:text="Get Points"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </LinearLayout>
+            <Button
+                android:id="@+id/redbuttonCloister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/roadTextView"
+                android:layout_alignLeft="@+id/redbutton"
+                android:layout_alignStart="@+id/redbutton"
+                android:background="#F44336"
+                android:onClick="redCloister"
+                android:text="@string/get_points"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
 
-        <TextView
-            android:id="@+id/total1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayout"
-            android:layout_margin="8dp"
-            android:text="Total Red Player: 0 points"
-            android:textAppearance="@style/redplayer" />
+            <Button
+                android:id="@+id/redbuttonRoad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/resetRoad"
+                android:layout_alignBottom="@+id/resetRoad"
+                android:layout_alignLeft="@+id/redbuttonCloister"
+                android:layout_alignStart="@+id/redbuttonCloister"
+                android:background="#F44336"
+                android:onClick="redRoad"
+                android:text="@string/get_points"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
 
-        <TextView
-            android:id="@+id/total2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/total1"
-            android:layout_margin="8dp"
-            android:fontFamily="serif"
-            android:text="Total Yellow Player: 0 points"
-            android:textColor="#FFD600"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
-</ScrollView>
+
+            <Button
+                android:id="@+id/yellowbutton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/redbuttonRoad"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginStart="@dimen/small"
+                android:layout_toEndOf="@id/redbuttonRoad"
+                android:layout_toRightOf="@id/redbuttonRoad"
+                android:background="#FFEB3B"
+                android:onClick="yellowRoad"
+                android:text="@string/get_points"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/redbutton"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginStart="@dimen/small"
+                android:layout_toEndOf="@id/redbutton"
+                android:layout_toRightOf="@id/redbutton"
+                android:background="#FFEB3B"
+                android:onClick="yellowCity"
+                android:text="@string/get_points"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/redbuttonCloister"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginStart="@dimen/small"
+                android:layout_toEndOf="@id/redbuttonCloister"
+                android:layout_toRightOf="@id/redbuttonCloister"
+                android:background="#FFEB3B"
+                android:onClick="yellowCloister"
+                android:text="@string/get_points"
+                android:textAllCaps="false"
+                android:textAppearance="@style/one" />
+
+            <TextView
+                android:id="@+id/twopointstiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/cityunu"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/medium"
+                android:layout_toEndOf="@id/cityunu"
+                android:layout_toRightOf="@id/cityunu"
+                android:text="@string/_0_tiles"
+                android:textAppearance="@style/one" />
+
+
+            <TextView
+                android:id="@+id/fourpointstiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cityplus"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/medium"
+                android:layout_toEndOf="@+id/cityplus"
+                android:layout_toRightOf="@+id/cityplus"
+                android:text="@string/_city"
+                android:textAppearance="@style/one" />
+
+
+            <TextView
+                android:id="@+id/resetButtonCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/resetCloister"
+                android:layout_alignStart="@+id/resetCloister"
+                android:layout_below="@+id/twopointstiles"
+                android:background="#8BC34A"
+                android:onClick="resetButton1"
+                android:padding="@dimen/small"
+                android:text="@string/reset_button_city"
+                android:textAllCaps="false"
+                android:textAppearance="@style/resetButton" />
+
+
+            <TextView
+                android:id="@+id/cloister1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/redbuttonCloister"
+                android:layout_alignBottom="@+id/redbuttonCloister"
+                android:layout_toEndOf="@+id/cloisterImageButton"
+                android:layout_toRightOf="@+id/cloisterImageButton"
+                android:text="@string/_0_tiles"
+                android:textAppearance="@style/one" />
+
+            <TextView
+                android:id="@+id/resetCloister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/redbuttonCloister"
+                android:layout_alignLeft="@+id/resetRoad"
+                android:layout_alignStart="@+id/resetRoad"
+                android:background="#8BC34A"
+                android:onClick="resetButton2"
+                android:padding="@dimen/small"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textAppearance="@style/resetButton" />
+
+
+            <TextView
+                android:id="@+id/road1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/roadImageButton"
+                android:layout_marginBottom="12dp"
+                android:layout_toEndOf="@+id/roadImageButton"
+                android:layout_toRightOf="@+id/roadImageButton"
+                android:text="@string/_0_tiles"
+                android:textAppearance="@style/one" />
+
+            <TextView
+                android:id="@+id/resetRoad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/road1"
+                android:layout_marginLeft="@dimen/small"
+                android:layout_marginStart="@dimen/small"
+                android:layout_toEndOf="@+id/road1"
+                android:layout_toRightOf="@+id/road1"
+                android:background="#8BC34A"
+                android:onClick="resetButton3"
+                android:padding="@dimen/small"
+                android:text="@string/reset"
+                android:textAllCaps="false"
+                android:textAppearance="@style/resetButton" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/total1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/medium"
+        android:layout_toEndOf="@id/lanscapeScrollView"
+        android:layout_toRightOf="@id/lanscapeScrollView"
+        android:background="#F44336"
+        android:padding="@dimen/small"
+        android:text="@string/total_red"
+        android:textAppearance="@style/redplayer" />
+
+    <TextView
+        android:id="@+id/total2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/total1"
+        android:layout_margin="@dimen/small"
+        android:layout_toEndOf="@id/lanscapeScrollView"
+        android:layout_toRightOf="@id/lanscapeScrollView"
+        android:background="#FFEB3B"
+        android:padding="@dimen/small"
+        android:text="@string/total_yellow"
+        android:textAppearance="@style/redplayer" />
+</RelativeLayout>

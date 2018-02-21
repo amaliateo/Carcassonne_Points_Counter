@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">Carcassonne</string>
     <string name="new_game_button">New Game</string>
-    <string name="red_player">Red Player</string>
-    <string name="yellow_player">Yellow Player</string>
+    <string name="red_player">Red \nPlayer</string>
+    <string name="yellow_player">Yellow \nPlayer</string>
     <string name="city">City</string>
     <string name="_0_tiles">0 tiles</string>
     <string name="get_points_red_city">Get Points</string>
     <string name="reset_button_city">reset</string>
     <string name="_city">0 tiles</string>
+    <string name="road">Road</string>
+    <string name="total_yellow">Total Yellow Player: 0 points</string>
+    <string name="total_red">Total Red Player: 0 points</string>
+    <string name="reset">reset</string>
+    <string name="get_points">Get Points</string>
+    <string name="cloister">Cloister</string>
+
 </resources>
